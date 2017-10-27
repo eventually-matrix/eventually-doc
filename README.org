@@ -20,3 +20,19 @@
       to attempt to move these spec changes into the official matrix-org spec.
   - Provide a central location for other important documentation on the Matrix
     ecosystem.
+* API Compatibility                                   :matrix:matrix_org:eventually_matrix:spec:api:
+** Experimental endpoints and features
+*** Compatible
+    If compatible with the Matrix.org ~unstable~ spec,
+    experimental endpoints
+    or endpoints with experimental features
+    will be located under an =unstable= ~/_matrix/~ route.
+*** Incompatible
+    However, if incompatible,
+    they will instead be located under an =unstable=  ~/_evt-matrix/~ route.
+** Stable endpoints and features
+   When an endpoint or feature stabilizes,
+   it will be submitted to Matrix.org
+   for consideration.
+   Meanwhile, it will be moved to
+   an appropriately versioned ~/_evt-matrix/~ route.
