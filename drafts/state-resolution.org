@@ -1,8 +1,8 @@
 Based loosely on [[https://github.com/matrix-org/matrix-doc/blob/c7c08eaf0f66510ba8c781b183e60aa3a1ce5bf9/drafts/erikj_federation.rst#state-resolution]["Erik's draft"]].
 
 * Room state
+  # deliberately vague
   While a room may in general have a lot of state associated with it,
-  # ^ deliberately vague
   only a certain subset of that state is relevant to federation,
   and this document will generally restrict itself to considering that subset.
 * Authorization
@@ -47,10 +47,10 @@ Based loosely on [[https://github.com/matrix-org/matrix-doc/blob/c7c08eaf0f66510
     # I (Magnap) suggest that this should be phrased as
     # "must be possible to implement considering only X subset of the event graph"
     4. For any event, when considering the event graph up to but not including it,
-    that is, its transitive dependencies
-    (the events it depends on directly,
-    and the events they depend on, and so forth),
-    it must be valid given the state as determined by that graph.
+       that is, its transitive dependencies
+       (the events it depends on directly,
+       and the events they depend on, and so forth),
+       it must be valid given the state as determined by that graph.
    # TODO talk about partial/total orders,
    # linear extensions, and topological ordering;
    # formalize these properties a bit better.
