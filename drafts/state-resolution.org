@@ -41,11 +41,11 @@ Based loosely on [[https://github.com/matrix-org/matrix-doc/blob/c7c08eaf0f66510
     1. Must only depend on the event graph, and not local server state.
     2. When two state events are comparable, the descendant one should be picked.
     3. Must not require the full event graph.
-    # DISCUSS What then? How much of the event graph can it require?
-    # Consider that you need the full event graph to e.g. determine whether
-    # an event is trying to ban someone from a room that actually exists.
-    # I (Magnap) suggest that this should be phrased as
-    # "must be possible to implement considering only X subset of the event graph"
+       # DISCUSS What then? How much of the event graph can it require?
+       # Consider that you need the full event graph to e.g. determine whether
+       # an event is trying to ban someone from a room that actually exists.
+       # I (Magnap) suggest that this should be phrased as
+       # "must be possible to implement considering only X subset of the event graph"
     4. For any event, when considering the event graph up to but not including it,
        that is, its transitive dependencies
        (the events it depends on directly,
