@@ -29,7 +29,9 @@ Based loosely on [[https://github.com/matrix-org/matrix-doc/blob/c7c08eaf0f66510
   (considering arrows to go from later events to earlier ones).
   As the simplest example, consider the following DAG,
   noting again that history follows the direction of the arrows:
+  
   [[./images/state-resolution-simple.svg]]
+  
   Here, the B and C nodes are both sources.
   If B and C are conflicting state events,
   what is the state when sending D?
