@@ -21,8 +21,8 @@
     which are either undocumented in the official spec or are unclear.
     - To facilitate this documentation occurring as quickly as possible, this kind
       of documentation is not required to be in any specific format. Document the
-      spec however you like (.md, .doc, .txt, whatever). Official spec format is still
-      strongly prefered.
+      spec however you like (.md, .doc, .txt, whatever). Within forked repositories,
+      please try to match your style to upstream to ease future merging.
     - To the same end, documentation isn't required to be perfect or thorough to
       be accepted; it must simply be an improvement on current documentation of
       the Matrix spec.
