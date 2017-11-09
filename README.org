@@ -1,8 +1,14 @@
+* Eventually Matrix
+
+  [Eventually](https://en.wikipedia.org/wiki/Eventual_consistency) Matrix is a
+  repository of knowledge about the Matrix ecosystem maintained by the community
+  for the community. It is the "bleeding edge" counterpart of the official
+  Matrix.org repositories in terms of documentation, SDK and libraries.
+
 * Purpose                                              :matrix:eventually_matrix:
 
-  Eventually Matrix is a repository of knowledge about the Matrix ecosystem maintained
-  by the community for the community. In broad strokes, this repository exists for
-  the following purposes in roughly the order they're listed.
+  In broad strokes, this repository exists for the following purposes in roughly the
+  order they're listed.
 
   - Allow Matrix community to easily document the current behavior of implementations
     in a specification format, when such behaviour deviates from the upstream spec.
