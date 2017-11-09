@@ -1,6 +1,6 @@
 * Eventually Matrix
 
-  [Eventually](https://en.wikipedia.org/wiki/Eventual_consistency) Matrix is a
+  [[https://en.wikipedia.org/wiki/Eventual_consistency][Eventually]] Matrix is a
   repository of knowledge about the Matrix ecosystem maintained by the community
   for the community. It is the "bleeding edge" counterpart of the official
   Matrix.org repositories in terms of documentation, SDK and libraries.
@@ -11,7 +11,7 @@
   order they're listed.
 
   - Allow Matrix community to easily document the current behavior of implementations
-    in a specification format, when such behaviour deviates from the upstream spec.
+    in a specification format when such behaviour deviates from the upstream spec.
     - Speed up the process of adoption and validation of new features/endpoints.
     - Give a more bleeding-edge reference document that Matrix community can use to
       prepare for stable releases of the official specification.
@@ -41,13 +41,13 @@
 
 The following repositories are currently available with the intended purposes:
 
-  - [matrix-doc](https://github.com/eventually-matrix/matrix-doc): Document current
+  - [[https://github.com/eventually-matrix/matrix-doc][matrix-doc]]: Document current
     behavior of implementations within the current Matrix Ecosystem:
       - The goal is to provide a clear and complete document of what is currently
         out there, irrelevant of their correctness towards the intended purpose.
       - The purpose is to provide a central knowledge repository to help the community
         in creating as easily and as fast as possible functional implementations.
-      - For intended purpose discussion and work, see [the upstream repository](https://github.com/matrix-org/matrix-doc).
+      - For intended purpose discussion and work, see [[https://github.com/matrix-org/matrix-doc][the upstream repository]].
 
 * API Compatibility                                   :matrix:matrix_org:eventually_matrix:spec:api:
 ** Experimental endpoints and features
