@@ -1,0 +1,13 @@
+* Fixing Synapse "state resets" ([[https://github.com/matrix-org/synapse/issues/1953][Synapse issue 1953]])
+  Current as of commit [[https://github.com/matrix-org/synapse/tree/632baf799ea876d2346e934dce90d6a24cb92e37][632baf7]]
+** Root cause is lack of transitive reduction despite reliance on it as invariant
+*** TODO Implement transitive reduction of subset of DAG
+**** Can be done in =O(nm)= time
+     Where
+     - =n= :: number of events
+     - =m= :: "depth span" of events (max difference in depth)
+**** Maybe reduce the number of events to look at by using only previous *state* events?
+*** Places where invariant is known to be broken
+**** TODO ~compute_event_context~ in ~synapse/state.py~
+***** TODO Add a call to transitive reduction function before calling ~resolve_state_groups~
+      Line 236
