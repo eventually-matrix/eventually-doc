@@ -7,6 +7,7 @@
      - =n= :: number of events
      - =m= :: "depth span" of events (max difference in depth)
 **** Maybe reduce the number of events to look at by using only previous *state* events?
+     Look in ~EventContext~ (see ~synapse/events/snapshot.py~) for potentially useful fields.
 *** Places where invariant is known to be broken
 **** TODO ~compute_event_context~ in ~synapse/state.py~
 ***** TODO Add a call to transitive reduction function before calling ~resolve_state_groups~
