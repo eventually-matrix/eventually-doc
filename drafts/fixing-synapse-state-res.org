@@ -11,3 +11,7 @@
 **** TODO ~compute_event_context~ in ~synapse/state.py~
 ***** TODO Add a call to transitive reduction function before calling ~resolve_state_groups~
       Line 236
+** TODO Ensure testing covers state resolution
+*** TODO Add tests if necessary
+**** TODO Investigate whether Synapse currently has failing tests for state resolution
+*** TODO Test for backwards compatibility with previous Synapse versions
