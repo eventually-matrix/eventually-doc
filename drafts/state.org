@@ -1,16 +1,14 @@
 Based loosely on [[https://github.com/matrix-org/matrix-doc/blob/c7c08eaf0f66510ba8c781b183e60aa3a1ce5bf9/drafts/erikj_federation.rst#state-resolution]["Erik's draft"]].
 
 * Room state
-  # deliberately vague
-  While a room may in general have a lot of state associated with it,
+  While the state of a room is an arbitrary set of key-value pairs,
   only a certain subset of that state is relevant to federation,
   and this document will generally restrict itself to considering that subset.
 * Authorization
 ** Auth state
    The auth (short for authorization) state is
    the subset of the room state
-   upon which the validity of future events may rely.
-   # DISCUSS the official documentation uses "authorization" where validity is used here
+   upon which the authorization of future events may rely.
    For example,
    during a time where a user is banned from a room,
    messages from that user to that room are invalid.
@@ -32,28 +30,36 @@ Based loosely on [[https://github.com/matrix-org/matrix-doc/blob/c7c08eaf0f66510
   
   [[./images/state-resolution-simple.svg]]
   
-  Here, the B and C nodes are both sources.
+  Here, the B and C nodes are both sources in the DAG.
   If B and C are conflicting state events,
   what is the state when sending D?
   That is what state resolution answers.
 ** The desired properties
-   # First 3 properties are taken directly from Erik's draft for now
-    1. Must only depend on the event graph, and not local server state.
-    2. When two state events are comparable, the descendant one should be picked.
-    3. Must not require the full event graph.
-       # DISCUSS What then? How much of the event graph can it require?
-       # Consider that you need the full event graph to e.g. determine whether
-       # an event is trying to ban someone from a room that actually exists.
-       # I (Magnap) suggest that this should be phrased as
-       # "must be possible to implement considering only X subset of the event graph"
-    4. For any event, when considering the event graph up to but not including it,
-       that is, its transitive dependencies
-       (the events it depends on directly,
-       and the events they depend on, and so forth),
-       it must be valid given the state as determined by that graph.
-   # TODO talk about partial/total orders,
-   # linear extensions, and topological ordering;
-   # formalize these properties a bit better.
+   1. Totality
+      There must always be a well-defined current state.
+   2. Locality
+      It must always be possible to determine
+      the current state as it appears to you
+      without having to consult other servers
+   3. Strong Eventual Consistency
+      Two homeservers that have received the same set of events
+      should always come to the same conclusions regarding current state.
+      Together with totality and locality, this implies that
+      state can be determined based on the DAG alone.
+   4. Consistency with the DAG
+      A DAG gives rise to a partial order over its nodes:
+      for any two events, they either happened on different branches
+      (making them incomparable)
+      or one can be said to have happened later than the other
+      (making the later event "greater",
+      though the choice of whether it is greater or lesser is arbitrary).
+      
+      A state resolution algorithm should give rise to
+      a total order over state events
+      that is a linear extension of this partial order.
+      # TODO explain what a linear extension is
+      # TODO compare and contrast with Erik's document
+
 
 # TODO define "current state" declaratively
 # and maybe also imperatively (i.e. the algorithm)
