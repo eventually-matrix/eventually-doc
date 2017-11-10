@@ -53,13 +53,30 @@ Based loosely on [[https://github.com/matrix-org/matrix-doc/blob/c7c08eaf0f66510
       or one can be said to have happened later than the other
       (making the later event "greater",
       though the choice of whether it is greater or lesser is arbitrary).
-      
+
       A state resolution algorithm should give rise to
       a total order over state events
       that is a linear extension of this partial order.
-      # TODO explain what a linear extension is
-      # TODO compare and contrast with Erik's document
+      A linear extension to a partial order
+      is a total order where all elements that are comparable
+      in the partial order compare the same way in the total order.
+      In other words, the linear extension only defines
+      the comparisons that the partial order hadn't already defined.
 
+      A very practical application of this is that it leads us to
+      exactly the class of algorithms that we can use for state resolution in practice:
+      a topological ordering of a DAG corresponds exactly to
+      a linear extension of the partial order that DAG gives rise to,
+      and efficient algorithms for calculating and maintaining
+      topological orderings exist.
+      However, care must be taken:
+      for most DAGs, and indeed for all DAGs representing
+      histories where state resolution is needed,
+      there exists no unique topological ordering.
+      The topological ordering we choose in each case
+      implies certain semantics,
+      and we must therefore be careful that we are comfortable with
+      the semantics that our particular algorithm implies.
 
 # TODO define "current state" declaratively
 # and maybe also imperatively (i.e. the algorithm)
