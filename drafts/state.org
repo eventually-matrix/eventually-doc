@@ -78,7 +78,21 @@ Based loosely on [[https://github.com/matrix-org/matrix-doc/blob/c7c08eaf0f66510
       and we must therefore be careful that we are comfortable with
       the semantics that our particular algorithm implies.
 
-# TODO define "current state" declaratively
-# and maybe also imperatively (i.e. the algorithm)
+   # TODO compare and contrast with Erik's document
+** The generic state resolution algorithm
+   To find the state as of a given event:
+   Order all state events
+   that it transitively depends on
+   according to the total order.
+   Then, apply them from least to greatest.
+   The final state is the current state as of that event.
+** A total order over states (as by "Erik's draft" and current Synapse)
+   For two events =A= and =B=,
+   =A < B= if =A='s depth is less than =B='s,
+   or, if their depths are equal,
+   if the hash value of =A= is less than
+   the hash value of =B=.
+   Otherwise, =B > A=.
 
+# DISCUSS an algorithm implies a total order and vice versa. But which should we specify?
 # DISCUSS does room versioning stuff belong here?
