@@ -36,18 +36,6 @@
   - Provide a central location for other important documentation on the Matrix
     ecosystem.
 
-* Repositories
-
-The following repositories are currently available with the intended purposes:
-
-  - [[https://github.com/eventually-matrix/matrix-doc][matrix-doc]]: Document current
-    behavior of implementations within the current Matrix Ecosystem:
-      - The goal is to provide a clear and complete document of what is currently
-        out there, irrelevant of their correctness towards the intended purpose.
-      - The purpose is to provide a central knowledge repository to help the community
-        in creating as easily and as fast as possible functional implementations.
-      - For intended purpose discussion and work, see [[https://github.com/matrix-org/matrix-doc][the upstream repository]].
-
 * API Compatibility                                   :matrix:matrix_org:eventually_matrix:spec:api:
 ** Experimental endpoints and features
 *** Compatible
