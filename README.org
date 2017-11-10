@@ -2,8 +2,10 @@
 
   [[https://en.wikipedia.org/wiki/Eventual_consistency][Eventually]] Matrix is a
   repository of knowledge about the Matrix ecosystem maintained by the community
-  for the community. It is the compilation of the latest and newest available
-  information in terms of documentation, SDK and libraries.
+  for the community. It is a compilation of the latest available information on
+  the ecosystem including general documentation, SDKs, Homeservers, and other
+  libraries. It is also a point of coordination for people experimenting with
+  changes to the matrix protocol.
 
 * Purpose                                              :matrix:eventually_matrix:
 
@@ -11,14 +13,16 @@
   order they're listed.
 
   - Allow Matrix community to easily document the current behavior of implementations
-    in a specification format when such behaviour deviates from the upstream spec.
-    - Speed up the process of adoption and validation of new features/endpoints.
+    when such behaviour deviates from the upstream spec.
+    - Speed up the process of adoption and validation of new features/endpoints
+      by providing enough information for implementations to test new,
+      unspecified features.
     - Provide the latest available knowledge that the Matrix community can use to
       prepare for stable releases of the official specification.
-    - Avoid duplication of work and effort in reverse-engineering deviation from
-      outdated specification.
   - Allow Matrix community to easily document pieces of the de-facto Matrix spec
     which are either undocumented in the official spec or are unclear.
+    - This helps to avoid duplication of work and effort in reverse-engineering
+      deviations from the specification.
     - To facilitate this documentation occurring as quickly as possible, this kind
       of documentation is not required to be in any specific format. Document the
       spec however you like (.md, .doc, .txt, whatever). Within repositories forked
@@ -27,8 +31,9 @@
     - To the same end, documentation isn't required to be perfect or thorough to
       be accepted; it must simply be an improvement on current documentation of
       the Matrix spec.
-  - Provide a QA/draft environment for the Matrix community to improve on the various
-    pieces of work and specification, before attempting being merge with upstream.
+  - Provide a QA/draft environment for the Matrix community to work on changes
+    and improvements to the matrix spec in public, before attempting to push
+    such changes upstream.
     - Eventually Matrix will also provide a process for gaining community consensus
       to attempt to move these spec changes into the official matrix-org spec.
   - Provide a location for the Matrix community to comment on and help with
