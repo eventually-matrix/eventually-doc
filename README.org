@@ -6,6 +6,8 @@
   the ecosystem including general documentation, SDKs, Homeservers, and other
   libraries. It is also a point of coordination for people experimenting with
   changes to the matrix protocol.
+  
+  Come talk to use on Matrix at [[https://matrix.to/#/#eventually:matrix.org][#eventually:matrix.org]]
 
 * Purpose                                              :matrix:eventually_matrix:
 
