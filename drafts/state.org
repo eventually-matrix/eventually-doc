@@ -1,0 +1,98 @@
+Based loosely on [[https://github.com/matrix-org/matrix-doc/blob/c7c08eaf0f66510ba8c781b183e60aa3a1ce5bf9/drafts/erikj_federation.rst#state-resolution]["Erik's draft"]].
+
+* Room state
+  While the state of a room is an arbitrary set of key-value pairs,
+  only a certain subset of that state is relevant to federation,
+  and this document will generally restrict itself to considering that subset.
+* Authorization
+** Auth state
+   The auth (short for authorization) state is
+   the subset of the room state
+   upon which the authorization of future events may rely.
+   For example,
+   during a time where a user is banned from a room,
+   messages from that user to that room are invalid.
+** Auth events
+   An auth (short for authorization) event is an event that changes any part of the auth state.
+** Auth rules
+   The auth rules determine,
+   for a given auth state,
+   whether a given auth event represents a valid change.
+   For the current auth rules,
+   see [[https://matrix.org/docs/spec/server_server/unstable.html#rules][the official spec]].
+   # TODO change this to most recent stable spec once one is released
+* State resolution
+  Given that the Matrix history model is a DAG rather than a linear list,
+  disagreement may occur when the DAG has more than one source
+  (considering arrows to go from later events to earlier ones).
+  As the simplest example, consider the following DAG,
+  noting again that history follows the direction of the arrows:
+  
+  [[./images/state-resolution-simple.svg]]
+  
+  Here, the B and C nodes are both sources in the DAG.
+  If B and C are conflicting state events,
+  what is the state when sending D?
+  That is what state resolution answers.
+** The desired properties
+   1. Totality
+      There must always be a well-defined current state.
+   2. Locality
+      It must always be possible to determine
+      the current state as it appears to you
+      without having to consult other servers
+   3. Strong Eventual Consistency
+      Two homeservers that have received the same set of events
+      should always come to the same conclusions regarding current state.
+      Together with totality and locality, this implies that
+      state can be determined based on the DAG alone.
+   4. Consistency with the DAG
+      A DAG gives rise to a partial order over its nodes:
+      for any two events, they either happened on different branches
+      (making them incomparable)
+      or one can be said to have happened later than the other
+      (making the later event "greater",
+      though the choice of whether it is greater or lesser is arbitrary).
+
+      A state resolution algorithm should give rise to
+      a total order over state events
+      that is a linear extension of this partial order.
+      A linear extension to a partial order
+      is a total order where all elements that are comparable
+      in the partial order compare the same way in the total order.
+      In other words, the linear extension only defines
+      the comparisons that the partial order hadn't already defined.
+
+      A very practical application of this is that it leads us to
+      exactly the class of algorithms that we can use for state resolution in practice:
+      a topological ordering of a DAG corresponds exactly to
+      a linear extension of the partial order that DAG gives rise to,
+      and efficient algorithms for calculating and maintaining
+      topological orderings exist.
+      However, care must be taken:
+      for most DAGs, and indeed for all DAGs representing
+      histories where state resolution is needed,
+      there exists no unique topological ordering.
+      The topological ordering we choose in each case
+      implies certain semantics,
+      and we must therefore be careful that we are comfortable with
+      the semantics that our particular algorithm implies.
+
+   # TODO compare and contrast with Erik's document
+** The generic state resolution algorithm
+   To find the state as of a given event:
+   Order all state events
+   that it transitively depends on
+   according to the total order.
+   Then, apply them from least to greatest.
+   The final state is the current state as of that event.
+** A total order over states (as by "Erik's draft" and current Synapse)
+   For two events =A= and =B=,
+   =A < B= if =A='s depth is less than =B='s,
+   or, if their depths are equal,
+   if the hash value of =A= is less than
+   the hash value of =B=.
+   Otherwise, =B > A=.
+
+# DISCUSS an algorithm implies a total order and vice versa. But which should we specify?
+# DISCUSS does room versioning stuff belong here?
