@@ -1,25 +1,48 @@
+* Eventually Matrix
+
+  [[https://en.wikipedia.org/wiki/Eventual_consistency][Eventually]] Matrix is a
+  repository of knowledge about the Matrix ecosystem maintained by the community
+  for the community. It is a compilation of the latest available information on
+  the ecosystem including general documentation, SDKs, Homeservers, and other
+  libraries. It is also a point of coordination for people experimenting with
+  changes to the matrix protocol.
+  
+  Come talk to us on Matrix at [[https://matrix.to/#/#eventually:matrix.org][#eventually:matrix.org]]
+
 * Purpose                                              :matrix:eventually_matrix:
 
-  Eventually Matrix is a repository of knowledge about the Matrix ecosystem maintained
-  by the community for the community. In broad strokes, this repository exists for
-  the following purposes in roughly the order they're listed.
+  In broad strokes, this repository exists for the following purposes in roughly the
+  order they're listed.
 
+  - Allow Matrix community to easily document the current behavior of implementations
+    when such behaviour deviates from the upstream spec.
+    - Speed up the process of adoption and validation of new features/endpoints
+      by providing enough information for implementations to test new,
+      unspecified features.
+    - Provide the latest available knowledge that the Matrix community can use to
+      prepare for stable releases of the official specification.
   - Allow Matrix community to easily document pieces of the de-facto Matrix spec
     which are either undocumented in the official spec or are unclear.
+    - This helps to avoid duplication of work and effort in reverse-engineering
+      deviations from the specification.
     - To facilitate this documentation occurring as quickly as possible, this kind
       of documentation is not required to be in any specific format. Document the
-      spec however you like (.md, .doc, .txt, whatever).
+      spec however you like (.md, .doc, .txt, whatever). Within repositories forked
+      from elsewhere, please try to match your style to upstream to ease future
+      merging.
     - To the same end, documentation isn't required to be perfect or thorough to
       be accepted; it must simply be an improvement on current documentation of
       the Matrix spec.
-  - Provide a location for the Matrix community to comment on and help with
-    in-progress spec changes.
-  - Provide a central place for the Matrix community to propose and debate spec
-    changes and extensions.
+  - Provide a QA/draft environment for the Matrix community to work on changes
+    and improvements to the matrix spec in public, before attempting to push
+    such changes upstream.
     - Eventually Matrix will also provide a process for gaining community consensus
       to attempt to move these spec changes into the official matrix-org spec.
+  - Provide a location for the Matrix community to comment on and help with
+    in-progress spec changes.
   - Provide a central location for other important documentation on the Matrix
     ecosystem.
+
 * API Compatibility                                   :matrix:matrix_org:eventually_matrix:spec:api:
 ** Experimental endpoints and features
 *** Compatible
